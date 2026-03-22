@@ -1,33 +1,43 @@
-import luffyImg from '../../assets/images/luffy.webp';
+import Card from './Card';
 import classes from './Carditem.module.css';
 
-export default function Carditem(){
+export default function Carditem(props){
+// export default function Carditem({
+//     name,
+//     avatarImg,
+//     email,
+//     location,
+//     experience,
+//     role,
+// }){
     return(
-        <div className={classes.card}>
+        <Card>        
             <div className={classes.header}>
-                <img className={classes.avatar} src={luffyImg} alt='profile avatar'/>
+                <img className={classes.avatar} 
+                src={props.luffyImg} 
+                alt='profile avatar'/>
 
                 <div className={classes.userInfo}>
-                    <h2 className={classes.name}>Monkey D Luffy</h2>
-                    <p className={classes.role}>Frontend developer</p>
+                    <h2 className={classes.name}>{props.name}</h2>
+                    <p className={classes.role}>{props.role}</p>
                 </div>
             </div>
 
             <div className={classes.details}>
                 <div className={classes.detailItem}>
-                    <spam className={classes.label}>Email:</spam>
-                    <spam>luffy@example.com</spam>
+                    <span className={classes.label}>Email:</span>
+                    <span>{props.email}</span>
                 </div>
                 <div className={classes.detailItem}>
-                    <spam className={classes.level}>Location:</spam>
-                    <spam>Kathmandu, Nepal</spam>
+                    <span className={classes.label}>Location:</span>
+                    <span>{props.location}</span>
                 </div>
                 <div className={classes.detailItem}>
-                    <spam className={classes.label}>Experience:</spam>
-                    <spam>3 Years</spam>
+                    <span className={classes.label}>Experience:</span>
+                    <span>{props.experience}</span>
                 </div>
             </div>
             <button className={classes.button}>View More</button>
-        </div>
+        </Card>
     );
 }
